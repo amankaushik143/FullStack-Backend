@@ -10,6 +10,9 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "shared-orm-library": ["node_modules/shared-orm-library"]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
