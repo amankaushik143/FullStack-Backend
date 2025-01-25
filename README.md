@@ -1,49 +1,102 @@
 # Backend Product Management Application
 
-This project is a NestJS-based backend application that manages products and their associated categories using MySQL as the database. It provides a REST API to fetch all products along with their category details.
+This is a backend application built using TypeScript, Node.js, and TypeORM. It provides an API for managing products and categories, connecting to a database, and supporting various features.
 
-## Features
+---
 
-- **REST API**: Fetch all products along with their category details.
-- **Database Integration**: Uses MySQL with TypeORM for data management.
-
-## Installation and Setup
-
-### Prerequisites
+## Prerequisites
 
 Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [MySQL](https://www.mysql.com/)
+
+- [Node.js](https://nodejs.org/) (v14+)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [PostgreSQL](https://www.postgresql.org/) (or another supported database)
+- [Git](https://git-scm.com/)
 
-### Steps
+---
 
-1. Clone the Repository:
+## Installation
+
+1. **Clone the Repository:**
    ```bash
    git clone <repository-url>
-   cd <repository-folder> 
+   cd <repository-name>
    ```
 
-2. Install Dependencies:
+2. **Install Dependencies:**
+   Using npm:
    ```bash
    npm install
    ```
+   Or using yarn:
+   ```bash
+   yarn install
+   ```
 
-3. Configure the Database:
-   Create a `.env` file in the root of the project and add the following configuration:
+3. **Set Up Environment Variables:**
+   Create a `.env` file in the root directory and configure it as shown below:
    ```env
+   NODE_ENV=development
    DB_HOST=localhost
    DB_PORT=3306
-   DB_USERNAME=root
-   DB_PASSWORD=your_password
-   DB_NAME=MyStore
+   DB_USERNAME=your_db_user
+   DB_PASSWORD=your_db_password
+   DB_NAME=your_db_name
    ```
 
-4. Create the Database Manually:
-   Create a database named `MyStore` in your MySQL instance and add some test data manually to validate the application.
+---
 
-5. Start the Application:
+## Configuration
+
+- **Database Configuration:** Update the `src/data-source.ts` file to reflect your database setup.
+- **TypeORM Configuration:** TypeORM automatically reads your `.env` file.
+
+---
+
+## Running the Application
+
+1. **Development Mode:**
    ```bash
-   npm run start:dev
+   npm run dev
    ```
+   This will start the application with live reload using `ts-node-dev`.
+
+2. **Production Mode:**
+   Build the project and start the server:
+   ```bash
+   npm run build
+   npm start
+   ```
+
+---
+
+## Database Migrations
+
+1. **Generate a Migration:**
+   ```bash
+   npm run migration:generate 
+   ```
+
+2. **Run Migrations:**
+   ```bash
+   npm run migration:run
+   ```
+
+3. **Revert Migrations:**
+   ```bash
+   npm run migration:revert
+   ```
+
+---
+
+## Scripts
+
+- **`npm run dev`**: Run the application in development mode.
+- **`npm run build`**: Build the project for production.
+- **`npm start`**: Start the application in production mode.
+- **`npm run migration:generate`**: Generate a new migration file.
+- **`npm run migration:run`**: Run all pending migrations.
+- **`npm run migration:revert`**: Revert the last migration.
+
+---
 
